@@ -196,8 +196,28 @@
 \begin{itemize}
     \item Gyógyszergyártási feladat = \\
           Betegség $\rightarrow$ Enzim $\rightarrow$ Lyuk $\rightarrow$ Protein struktúra adatbázis $\rightarrow$ Passzoló protein
-    \item Minimum / maximum keresése adatbázisban
-    \item Kvantumosan:
+    \item Kell: minimum / maximum keresése rendezetlen adatbázisban.
+    \item Kvantumosan $O(\sqrt{N})$-ben!
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Maximumkeresés kvantumosan (Dill folding)}
+\begin{itemize}
+    \item Input: $w \in{} \{H,P\}^*$, $|w| = n$.
+    \item Kódolás: beágyazás $\rightarrow$ $c\cdot{}n$ db qubit.
+    \begin{itemize}
+        \item Pl. Kezdőpont = Origó, Lépés = 4 irány = 2 qubit.
+        \item Probléma: önmagát metsző beágyazásnak is van kódja.
+    \end{itemize}
+    \item Feltétel = Orákulum (1.): Kódolás $\rightarrow$ Helyes-e?
+    \item Adatbázis = Kvantumregiszterben az összes beágyazás szuperpozíciója.
+    \begin{itemize}
+        \item Grover: ebben talál a feltételt kielégítő elemet.
+    \end{itemize}
+    \item Maximalizálás = Orákulum (2.): Kódolás $\rightarrow$ Aktuálisnál jobb-e?
+    \begin{itemize}
+        \item Grover: talál egy jobbat, többször futtatva maximumig jut, összesen $O(\sqrt{N})$-ben.
+    \end{itemize}
 \end{itemize}
 \end{frame}
 
