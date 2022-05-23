@@ -27,6 +27,8 @@
 \usepackage{tikz}
 \usetikzlibrary{decorations.markings}
 \usetikzlibrary{calc}
+\usepackage{caption}
+\usepackage{subcaption}
 %
 
 % Style setup
@@ -44,9 +46,9 @@
 % Newline in cell
 \usepackage{makecell}
 
-\author[Nemkin Viktória]{Nemkin Viktória}
+\author[Nemkin Viktória, dr. Friedl Katalin]{Nemkin Viktória}
 \institute[]{
-\begin{small}dr. Friedl Katalin\end{small}
+\begin{small}Témavezető: dr. Friedl Katalin\end{small}
 }
 \title{Kvantumalgoritmusok bioinformatikai alkalmazása}
 \subtitle{Protein folding \& Molecular docking}
@@ -71,16 +73,81 @@
 
 \end{frame}
 
-
 \begin{frame}{Miért foglalkozzunk bioinformatikával?}
 \begin{itemize}
     \item Területek: egészségügy, gyógyszergyártás, környezetvédelem, agráripar.
-    \item Küzdelem betegségek, globális felmelegedés, éhínség ellen.
+    \begin{itemize}
+        \item Küzdelem betegségek, globális felmelegedés, éhínség ellen.
+    \end{itemize}
     \item Sok problémára nincs hatékony, egzakt algoritmus.
+    \item Kvantuminformatika: új számítási modell = kvantum Turing-gép.
 \end{itemize}
     
 \end{frame}
 
+\begin{frame}{Gyógyszergyártás = A rossz lyukak betömése.}
+
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}{.4\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{./dipterv1_figures/hemoglobin.png}
+    \caption{Protein folding (Hemoglobin)}
+  \end{subfigure}
+  \begin{subfigure}{.48\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{./dipterv1_figures/molecular_docking.jpg}
+    \caption{Molecular docking}
+  \end{subfigure}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Protein folding}
+\begin{itemize}
+    \item Proteinek = Emberi szervezet építőkövei.
+    \item Feladataik: jelzés (inzulin), szállítás (hemoglobin), metabolizmus (enzimek), stb.
+    \item Felépítésük: 20 lehetséges aminosavból, hosszú lánc (elsődleges struktúra).
+\end{itemize}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{dipterv1_figures/protein_structure_primary.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Proteinek 4 szintű szerkezete}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{dipterv1_figures/protein_structure_secondary.png}
+\includegraphics[width=0.8\textwidth]{dipterv1_figures/protein_structure_tertiary.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Proteinek 4 szintű szerkezete}
+\begin{center}
+\includegraphics[width=0.6\textwidth]{dipterv1_figures/protein_structure_quaternary.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Dill-féle HP modell}
+\begin{itemize}
+    \item Egyszerűsített modell.
+    \item Aminosavak csoportosítása:
+    \begin{itemize}
+        \item H = Hidrofób = Apoláris = Nem szereti a vizet.
+        \item P = Poláris = Hidrofil = Szereti a vizet.
+    \end{itemize}
+    \item Sejtben víz veszi körül $\rightarrow$ kívül P, belül H.
+    \item Térbeli elhelyezkedés: 2D vagy 3D rácson.
+    \item Tapasztalati úton igazolt: ez egy jól használható közelítés!
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Dill-féle Protein folding feladat}
+\begin{center}
+\includegraphics[width=0.6\textwidth]{dipterv1_figures/hp_model.png}
+\end{center}
+\end{frame}
 
 
 \begin{frame}
