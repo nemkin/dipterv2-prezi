@@ -73,161 +73,94 @@
 
 \end{frame}
 
-\begin{frame}{Miért foglalkozzunk bioinformatikával?}
-\begin{itemize}
-    \item Területek: egészségügy, gyógyszergyártás, környezetvédelem, agráripar.
-    \begin{itemize}
-        \item Küzdelem betegségek, globális felmelegedés, éhínség ellen.
-    \end{itemize}
-    \item Sok problémára nincs hatékony, egzakt algoritmus.
-    \item Kvantuminformatika: új számítási modell = kvantum Turing-gép.
-\end{itemize}
-    
-\end{frame}
-
 \begin{frame}{Gyógyszergyártás = A rossz lyukak betömése.}
 
 
 \begin{figure}[H]
   \centering
-  \begin{subfigure}{.4\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{./dipterv1_figures/hemoglobin.png}
-    \caption{Protein folding (Hemoglobin)}
-  \end{subfigure}
   \begin{subfigure}{.48\linewidth}
     \centering
     \includegraphics[width=\linewidth]{./dipterv1_figures/molecular_docking.jpg}
     \caption{Molecular docking}
   \end{subfigure}
-\end{figure}
-
-\end{frame}
-
-
-\begin{frame}{Protein folding}
-\begin{itemize}
-    \item Proteinek = Emberi szervezet építőkövei.
-    \item Feladataik: jelzés (inzulin), szállítás (hemoglobin), metabolizmus (enzimek), stb.
-    \item Felépítésük: 20 lehetséges aminosavból, hosszú lánc (elsődleges struktúra).
-\end{itemize}
-\begin{center}
-\includegraphics[width=0.8\textwidth]{dipterv1_figures/protein_structure_primary.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{Proteinek 4 szintű szerkezete}
-\begin{center}
-\includegraphics[width=0.8\textwidth]{dipterv1_figures/protein_structure_secondary.png}
-\includegraphics[width=0.8\textwidth]{dipterv1_figures/protein_structure_tertiary.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{Proteinek 4 szintű szerkezete}
-\begin{center}
-\includegraphics[width=0.6\textwidth]{dipterv1_figures/protein_structure_quaternary.png}
-\end{center}
-\end{frame}
-
-\begin{frame}{Dill-féle HP modell}
-\begin{itemize}
-    \item Egyszerűsített modell, gyakorlatban jól használható.
-    \item Aminosavak csoportosítása:
-    \begin{itemize}
-        \item H = Hidrofób = Apoláris = Nem szereti a vizet.
-        \item P = Poláris = Hidrofil = Szereti a vizet.
-        \item Sejtben víz veszi körül $\rightarrow$ kívül P, belül H.
-    \end{itemize}
-    \item Térbeli elhelyezkedés:
-    \begin{itemize}
-        \item 2D vagy 3D rács pontjaiba.
-        \item Beágyazás jósága = egymás melletti H-H párok darabszáma.
-    \end{itemize}
-    \item Feladat: maximalizálás $\rightarrow$ bizonyítottan NP-nehéz (Hamilton-kör).
-\end{itemize}
-\end{frame}
-
-\begin{frame}{HP lánc beágyazása rácsba}
-\begin{figure}[H]
-  \centering
   \begin{subfigure}{.4\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{./dipterv1_figures/hp_model_2d.png}
-    \caption{Beágyazás 2D rácsba}
+    \includegraphics[width=\linewidth]{./dipterv1_figures/hemoglobin.png}
+    \caption{Protein folding (Hemoglobin)}
   \end{subfigure}
-  \begin{subfigure}{.55\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{./dipterv1_figures/hp_model_3d.png}
-    \caption{Beágyazás 3D rácsba}
-  \end{subfigure}
-  \caption{H feketével, P fehérrel jelölve}
 \end{figure}
+
 \end{frame}
 
-\begin{frame}{Molecular docking}
-\begin{itemize}
-    \item Emberi test működése = kémiai reakciók $\rightarrow$ enzimek katalizátorok.
-    \item Betegség = rossz kémiai reakciók $\rightarrow$ gyógyszer = enzim lyuk (kötési hely) betömése.
-\end{itemize}
-\begin{center}
-\includegraphics[width=\linewidth]{./dipterv1_figures/lock_and_key_model.jpg}
-\end{center}
-\end{frame}
 
-\begin{frame}{Molecular docking}
-\begin{itemize}
-    \item Keressük a lyukba passzoló kulcsot.
-    \item Mindkét 3D felület modellezése gráffal:
-    \begin{itemize}
-        \item Csúcsok = Atomok
-        \item Élek = Kötések
-        \item Élsúlyok = Távolságok
-    \end{itemize}
-    \item Feldat:
-    \begin{itemize}
-        \item Részgráfizomorfia $\rightarrow$ csúcsok megfeleltetése.
-        \item NP-nehéz.
-        \item Minimalizálandó: megfeleltetett élek súlyeltérésének szórása.
-    \end{itemize}
-\end{itemize}
-\end{frame}
+\begin{frame}{"Protein folding" kvantumos modellje}
 
-\begin{frame}{Kvantumos gyógyszergyártás}
+\begin{columns}
+\begin{column}{0.55\textwidth}
+\vspace{-0.3cm}
 \begin{itemize}
-    \item Gyógyszergyártási feladat = \\
-          Betegség $\rightarrow$ Enzim $\rightarrow$ Lyuk $\rightarrow$ Protein struktúra adatbázis $\rightarrow$ Passzoló protein
-    \item Kell: minimum / maximum keresése rendezetlen adatbázisban.
-    \item Kvantumosan $O(\sqrt{N})$-ben!
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Maximumkeresés kvantumosan (Dill folding)}
-\begin{itemize}
-    \item Input: $w \in{} \{H,P\}^*$, $|w| = n$.
-    \item Kódolás: beágyazás $\rightarrow$ $c\cdot{}n$ db qubit.
+    \item \textbf{Protein}:
     \begin{itemize}
-        \item Pl. Kezdőpont = Origó, Lépés = 4 irány = 2 qubit.
-        \item Probléma: önmagát metsző beágyazásnak is van kódja.
+        \item Aminosavakból alkotott lánc.
+        \begin{itemize}
+          \item \color{red} Piros = Hidrofób (''vízkerülő'').
+          \item \color{blue} Kék = Poláris (''vízszerető'').
+        \end{itemize}
+        \item Hajtogatás: 3D kockarács pontjain.
+        \item Cél: Minimális energiájú elhelyezés (NP-nehéz).
     \end{itemize}
-    \item Feltétel = Orákulum (1.): Kódolás $\rightarrow$ Helyes-e?
-    \item Adatbázis = Kvantumregiszterben az összes beágyazás szuperpozíciója.
+    \item \textbf{Kódolás}:
     \begin{itemize}
-        \item Grover: ebben talál a feltételt kielégítő elemet.
+        \item Origóból, lépésenként \\$6$ irány $=$ $6$ kvantumbit (qubit).
     \end{itemize}
-    \item Maximalizálás = Orákulum (2.): Kódolás $\rightarrow$ Aktuálisnál jobb-e?
+    \item \textbf{Orákulum}: 
     \begin{itemize}
-        \item Grover: talál egy jobbat, többször futtatva maximumig jut, összesen $O(\sqrt{N})$-ben.
+        \item Energiaviszonyok lepontozása.
     \end{itemize}
 \end{itemize}
-\end{frame}
-
-\begin{frame}{QuSZIT}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.4\linewidth]{./dipterv1_figures/schrodingers_purple.png}
-    \vspace{0.3cm}
-    \caption{\huge{\href{https://cs.bme.hu/quantum/}{https://cs.bme.hu/quantum/}}}
+\end{column}
+\begin{column}{0.45\textwidth}
+\vspace{-0.2cm}
+\begin{figure}[H]
+\center
+\includegraphics[width=\textwidth]{./tdk_2022_figures/Protein-folds-with-length-36-amino-acids-18-contacts.png}
+\caption{Egy összehajtogatott protein.\footnotemark}
 \end{figure}
+\end{column}
+\end{columns}
+
+\footnotetext[1]{\scriptsize Forrás: Traykov et al. (2018). Protein Folding in 3D Lattice HP Model Using Heuristic Algorithm.}
+
 \end{frame}
+
+\begin{frame}{Kvantumalgoritmusok a megoldáshoz}
+\begin{itemize}
+    \item \textbf{Grover-algoritmus}
+    \begin{itemize}
+        \item Strukturálatlan keresés.
+        \item \textbf{Klasszikusan} $O(N)$: minden lehetséges megoldás végignézése.
+        \item \textbf{Kvantumosan} $O(\sqrt{N})$: ''kvantum párhuzamosság'' kihasználása. 
+    \end{itemize}
+    \item \textbf{Kvantumséták}
+    \begin{itemize}
+        \item Strukturált keresés.
+        \item \textbf{Gráf}:
+        \begin{itemize}
+            \item Csúcsai: lehetséges hajtogatások.
+            \item Élei: apró transzformációk.
+        \end{itemize}
+    \end{itemize}
+   \item $\rightarrow$ Kettő kombinálása.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Kvantumséták szimulációja}
+
+\end{frame}
+
+\begin{frame}{Memóriafelhasználás optimalizálása kvantumalgoritmusok szimulációjában}
+
+\end{frame}
+
 
 \end{document}
