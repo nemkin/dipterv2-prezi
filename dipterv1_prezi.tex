@@ -29,6 +29,7 @@
 \usetikzlibrary{calc}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{cancel}
 %
 
 % Style setup
@@ -215,7 +216,13 @@ Köszönöm a figyelmet!
 A szerző említi (30. oldal), hogy ha egy gráf szomszédsági mátrixa felírható permutációk összegeként, akkor létezik rá kvantumbolyongás. Tudna mondani egy vagy több feltételt vagy példát, hogy ez milyen mátrixokra/gráfokra teljesül?
 
 \begin{itemize}
-  \item 
+  \item (Érmés típusú kvantumbolyongás.)
+  \item $d$-reguláris gráfokra teljesül.
+  \item Képzeljük el páros gráfként: Szomszédsági mátrix sorai és oszlopai a színosztályok, él ott van ahol $1$-es a cella értéke.
+  \item Ebben van teljes párosítás = egy permutáció.
+  \item Kiveszem, $d-1$-reguláris lesz, ismétlem amíg elfogynak az élek.
+  \item Más gráfokra nem teljesülhet, mert $d$ db permutáció összege biztosan $d$-reguláris szomszédsági mátrix lesz.
+  \item Más gráfokat kiegészítünk élekkel, amíg $d$-regulárisak nem lesznek.
 \end{itemize}
 
 \end{frame}
@@ -225,7 +232,10 @@ A szerző említi (30. oldal), hogy ha egy gráf szomszédsági mátrixa felírh
 Az 5.6. ábrán a következők vannak ábrázolva: ,,Quantum [...] hitting and mixing times''. Mi ennek a két fogalomnak a definíciója? (Nem találtam a dolgozatban.)
 
 \begin{itemize}
-  \item 
+  \item Klasszikus fogalmak általánosítása kvantumosan.
+  \item Itt egyetlen bolyongónak van valószínűségi eloszlása, ami fix szabályok szerint terjed, csak a mérés pillanatában van véletlen.
+  \item Hitting time: Kezdőcsúcsból indulva a megtett lépések száma, amíg először nem $0$ valószínűséggel van a bolyongó az adott csúcsban.
+  \item Mixing time: Kezdőcsúcsból indulva a megtett lépések minimális száma, amíg a bolyongó eloszlása a stacionáriustól minden pontban $\varepsilon$-ra van.
 \end{itemize}
 
 \end{frame}
