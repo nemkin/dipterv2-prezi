@@ -60,19 +60,6 @@
 
 \begin{frame}
 \titlepage
-
-\begin{textblock*}{150pt}(280pt,192pt) % {block width} (coords)
-\includesvg[inkscape=overwrite,width=150pt]{./figures/qi.svg}
-\end{textblock*}
-
-\begin{textblock*}{180pt}(15pt,170pt) % {block width} (coords)
-\begin{figure}[H]
-\includegraphics[width=140pt]{./figures/bme_logo.pdf}
-\caption{Számítástudományi és Információelméleti Tanszék}
-\end{figure}
-
-\end{textblock*}
-
 \end{frame}
 
 \begin{frame}{Gyógyszergyártás = A rossz lyukak betömése.}
@@ -249,24 +236,58 @@ Lánc & Qubitek & Regiszter & Operátor &  \cellcolor{applegreen!30} ''On-the-fl
 
 \end{frame}
 
-
-
-
-\begin{frame}{Zárszó}
-
-\begin{center}
-\begin{LARGE}
-Köszönöm a figyelmet!
-\end{LARGE}
-\end{center}
+\begin{frame}{Eredmények}
 
 \begin{itemize}
-\item \textbf{Forráskódok} (MIT licensz)
+    \item \textbf{Kvantumséták szimulációja}
+    \begin{itemize}
+    \item Szimulátor szoftver reguláris gráfokra $\rightarrow$ cikk.
+    \end{itemize}
+    \item \textbf{Memóriaoptimalizált szimulátor keretrendszer}
+    \begin{itemize}
+    \item Ha a regiszter $2x$ belefér a memóriába akkor az egész algoritmus is.
+    \item Regiszterek:
+    \begin{itemize}
+      \item Ritka mátrixos tárolás.
+      \item Tetszőleges célregiszterek: qubit és index leképzés.
+    \end{itemize}
+    \item Operátorok:
+    \begin{itemize}
+      \item ''On-the-fly'': Hadamard, Grover.
+      \item ''Függvény-alapú'': Sum, MC-NOT.
+    \end{itemize}
+    \item Könnyen bővíthető architektúra.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Jövőbeli tervek}
+
+\begin{itemize}
+    \item Protein folding algoritmus implementálása.
+    \item Döntési fa alapú regisztertárolás kipróbálása.
+    \item Kvantumséta szimulátor algoritmus átemelése a szimulátor keretrendszerbe.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Forráskódok}
+
+\begin{itemize}
+\item MIT licensz
 \begin{itemize}
 \item Kvantumséták: \href{https://github.com/nemkin/quantum-walk}{\color{blue}https://github.com/nemkin/quantum-walk}
 \item Memóriaoptimalizálás: \href{https://github.com/nemkin/qmem}{\color{blue}https://github.com/nemkin/qmem}
 \end{itemize}
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+\begin{LARGE}
+Köszönöm a figyelmet!
+\end{LARGE}
+\end{center}
 \end{frame}
 
 \begin{frame}{Bíráló kérdései - 1.}
